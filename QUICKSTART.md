@@ -1,5 +1,9 @@
 # Quick start
 
+This is the host-toolchain quick start inherited from upstream. Read the
+[persistence rule in README.md](README.md) first: root is not a new Home, and an
+external HDMI box is not a replacement OS.
+
 ## 1. Install Tizen Studio
 
 Install Tizen Studio from Samsung/Tizen. This project does not redistribute
@@ -37,7 +41,7 @@ follow the bundled documentation or the
 To run from source instead of a standalone release:
 
 ```console
-git clone https://github.com/chris-ritsen/samsung-tv-root.git
+git clone https://github.com/nicolasmertens/samsung-tv-root.git
 cd samsung-tv-root
 python -m venv .venv
 .venv/bin/python -m pip install -e .
@@ -104,8 +108,8 @@ session. Use `--script-argument VALUE` repeatedly when arguments are needed.
 An explicit address remains supported:
 
 ```console
-./samsung-tv-root preflight qn90f 192.0.2.50
-./samsung-tv-root qn90f root 192.0.2.50
+./samsung-tv-root preflight qn90f <TV_IP>
+./samsung-tv-root qn90f root <TV_IP>
 ```
 
 Use `qn90b` for the 2022 PontusM platform. Preflight reports `tested`,
@@ -120,8 +124,8 @@ then stages and executes a root payload. `probe` performs the full root
 acquisition and cleanup; it is not a read-only preflight:
 
 ```console
-./samsung-tv-root archive-root probe 192.0.2.50
-./samsung-tv-root archive-root root 192.0.2.50 --command 'id'
+./samsung-tv-root archive-root probe <TV_IP>
+./samsung-tv-root archive-root root <TV_IP> --command 'id'
 ```
 
 This route was live-tested on QN90B and QN90F. It does not yet provide an
